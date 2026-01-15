@@ -1,0 +1,490 @@
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#dce3f1;
+  color:#020617;
+}
+
+/* ================= HEADER ================= */
+.header{
+  display:flex;
+  gap:10px;
+  padding:12px;
+  background:#020617;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.header input{
+  flex:1;
+  padding:10px;
+  border:none;
+  border-radius:6px;
+  outline:none;
+}
+
+.header button{
+  padding:10px 16px;
+  border:none;
+  border-radius:6px;
+  background:#22c55e;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ================= SECTION WRAP ================= */
+.lineQuizContainer,
+.recentLiveQuizContainer,
+.liveQuizContainer,
+.freeQuizContainer{
+    margin:50px auto;
+    color:#020617;
+}
+
+/* ================= FEATURE BAR ================= */
+.features{
+    display:flex;
+    background:#ffffff;
+    margin:12px;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.feature-card{
+    flex:1;
+    padding:16px 8px;
+    text-align:center;
+    cursor:pointer;
+    border-right:1px solid #e5e7eb;
+}
+
+.feature-card:last-child{
+    border-right:none;
+}
+
+.feature-card span{
+    display:block;
+    margin-top:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#020617;
+}
+
+/* ================= SECTION ================= */
+.lineQuizContainer,
+.recentLiveQuizContainer,
+.liveQuizContainer,
+.freeQuizContainer{
+  margin:50px auto;
+  max-width:1400px;
+}
+
+/* ================= SCROLL LIST ================= */
+.examList,
+.subjectList,
+.chapterList,
+.classList{
+  margin-top:20px;
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:325px;     
+  gap:24px;
+  overflow-x:auto;
+  padding-bottom:10px;
+  scroll-behavior:smooth;
+}
+
+.examList::-webkit-scrollbar,
+.subjectList::-webkit-scrollbar,
+.chapterList::-webkit-scrollbar,
+.classList::-webkit-scrollbar{
+    height:6px;
+}
+
+.examList::-webkit-scrollbar-thumb,
+.subjectList::-webkit-scrollbar-thumb,
+.chapterList::-webkit-scrollbar-thumb,
+.classList::-webkit-scrollbar-thumb{
+    background:#334155;
+    border-radius:10px;
+}
+
+/* only 4 items visible on desktop */
+/* @media (min-width:1200px){
+  .examList,
+  .subjectList,
+  .chapterList,
+  .classList{
+    max-width:1460px; 
+  }
+} */
+
+/* ================= CARD ================= */
+.examItem,
+.classItem,
+.subjectItem,
+.chapterItem{
+  background:linear-gradient(to top,#fff,#eaeaf2);
+  border-radius:16px;
+  padding:20px;
+  height:200px;             
+  transition:.3s;
+}
+
+.examItem:hover,
+.classItem:hover,
+.subjectItem:hover,
+.chapterItem:hover{
+  transform:translateY(-4px);
+}
+
+.examItem h3,
+.classItem h3,
+.subjectItem h3,
+.chapterItem h3{
+  font-size:22px;
+  margin-bottom:8px;
+  color:#2563eb;
+}
+
+.examItem p,
+.classItem p,
+.subjectItem p,
+.chapterItem p{
+    margin-top: 15px;
+    font-size:14px;
+    color:#020617;
+}
+
+
+/* ================= BUTTON ================= */
+.startBtn{
+  width:100%;
+  margin-top:12px;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+
+.startBtn:hover{
+    background:#1d4ed8;
+}
+
+/* ================= QUIZ LAYOUT ================= */
+.schoolWrap1,
+.sscWrap1{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+/* ================= QUESTION BOX ================= */
+.questionBox{
+    background:linear-gradient(to bottom,rgba(59,130,246,.9),rgba(147,51,234,.85));
+    padding:15px;
+    border-radius:10px;
+    color:#fff;
+}
+
+.questionBox p{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+/* ================= OPTIONS ================= */
+.label{
+    display:block;
+    padding:12px 15px;
+    margin-bottom:10px;
+    border-radius:8px;
+    border:1px solid #334155;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.label:hover{
+    background:#334155;
+}
+
+.label:has(input[type="radio"]:checked){
+    background:#083ba8;
+    border-color:#38bdf8;
+}
+
+/* ================= RIGHT PANEL ================= */
+.questionBox2{
+    background:linear-gradient(to bottom,rgba(59,130,246,.9),rgba(147,51,234,.85));
+    padding:12px;
+    border-radius:10px;
+    color:#fff;
+}
+
+/* ================= QUIZ HEADER ================= */
+.quizHeader{
+    position:sticky;
+    top:0;
+    z-index:50;
+    /* background:#020617; */
+    padding:10px 12px 14px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* ================= HEADER ROW ================= */
+.quizHeader .qhLeft,
+.quizHeader .qhRight{
+    /* display:flex; */
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    gap:12px;
+}
+
+.quizHeader .qhLeft{
+    margin-bottom:6px;
+}
+
+.quizHeader .qhRight{
+    position:absolute;
+    top:10px;
+    right:12px;
+    text-align:right;
+}
+
+/* ================= LINEAR PROGRESS ================= */
+.progressContainer{
+    width:100%;
+    height:8px;
+    background:#0f172a;
+    border-radius:10px;
+    overflow:hidden;
+    margin:8px 0 10px;
+}
+
+.progressFill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#22c55e,#16a34a);
+    transition:width .4s ease;
+}
+
+/* ================= DOT PROGRESS ================= */
+.pBar{
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    padding-bottom:6px;
+    scrollbar-width:none;
+}
+.pBar::-webkit-scrollbar{
+    display:none;
+}
+
+/* ================= DOT BASE ================= */
+.pDot{
+    min-width:28px;
+    height:28px;
+    background:#1e293b;
+    color:#cbd5f5;
+    font-size:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    transition:.3s;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,.15);
+}
+
+/* ================= CURRENT ================= */
+.pDot.current{
+    outline:2px solid #2563eb;
+    outline-offset:2px;
+    background:#1e40af;
+    color:#fff;
+}
+
+/* ================= ANSWERED ================= */
+.pDot.answered{
+    background:#22c55e;
+    color:#022c22;
+    border:none;
+    border-radius:6px;      
+    transform:scale(1.1);
+}
+
+/* ================= WRONG ================= */
+.pDot.wrong{
+    /* background:#ef4444;
+    color:#fff; */
+
+    background:#22c55e;
+    color:#022c22;
+    border:none;
+    border-radius:6px 0;      
+    transform:scale(1.1);
+}
+
+/* ================= SKIPPED ================= */
+.pDot.skipped{
+    background:#334155;
+    color:#94a3b8;
+}
+
+/* ================= DOT BAR ================= */
+.pBar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
+
+.pDot{
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:#e5e7eb;
+    color:#020617;
+    font-size:12px;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+
+/* ================= NAV BUTTON ================= */
+.navBtn{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+
+.navBtn button{
+    padding:8px 12px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.navBtn button:hover{
+    background:#020617;
+    color:#fff;
+}
+
+
+
+
+/*=========================================================================================*/
+/*======================================== LIVE QUIZ ======================================*/
+/*=========================================================================================*/
+.freeQuizContainer,
+.liveQuizContainer{
+  padding:15px 15px;
+  max-width:1400px;
+}
+
+.liveQuizes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,300px));
+  gap:20px;
+  justify-content:start;
+}
+
+.liveTestCard{
+  background:#1e293b;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,.3);
+  transition:.3s;
+  text-align:left;
+}
+
+.liveTestCard:hover{
+  transform:translateY(-4px);
+}
+
+.liveTestCard p{
+  font-size:13px;
+  color:#cbd5f5;
+}
+
+.liveTestStatus{
+  display:inline-block;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:5px;
+}
+
+.status-live{background:#16a34a;}
+.status-upcoming{background:#f59e0b;color:black;}
+.status-ended{background:#dc2626;}
+
+.liveCountdown{color:#facc15;font-weight:bold;}
+.liveUsers{color:#38bdf8;}
+
+.liveTestCard button{
+  width:100%;
+  margin-top:10px;
+  padding:8px;
+  border:none;
+  border-radius:6px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+} 
+
+/* ================= MOBILE ================= */
+ @media(max-width:768px){
+  .lineQuizContainer,
+  .recentLiveQuizContainer,
+  .liveQuizContainer,
+  .freeQuizContainer{
+    margin:15px;
+  }
+
+  .examList,
+  .subjectList,
+  .chapterList,
+  .classList{
+    grid-auto-columns:85%;
+    max-width:100%;
+  }
+} 
+
+/* ==================================================================================== */
+/* ==================================== FOOTER ======================================== */
+/* ==================================================================================== */
+.info{
+    background:#020617;
+    padding:40px 20px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:25px;
+}
+
+.partOfFooter p{
+    color: white;
+}
+
+.partOfFooter h3{
+    color:#38bdf8;
+}
+
+.partOfFooter a{
+    display: flex;
+    padding: 5px 0;
+    text-align: left;
+    color:#cbd5f5;
+    font-size:14px;
+    text-decoration:none;
+}
