@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="jpr.css">
+        <link rel="stylesheet" href="homePage.css">
+
+        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+        <!-- <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                font-family:Arial, Helvetica, sans-serif;
+            }
+
+            body{
+                background:#999ba0;
+                color:white;
+                overflow-x:hidden;
+            }
+
+            /* =================================================================== */
+            /* ================= class header decored search box ================= */
+            /* ================= HEADER ========================================== */
+            .header{
+                display:flex;
+                justify-content:space-between;
+                gap:10px;
+                padding:10px;
+                background:#020617;
+                position:sticky;
+                top:0;
+                z-index:100;
+            }
+
+            .header input{
+                flex:1;
+                padding:8px;
+                border:none;
+                border-radius:5px;
+                background:#fff;
+            }
+
+            .header button{
+                padding:8px 14px;
+                border:none;
+                background:#16a34a;
+                color:white;
+                border-radius:5px;
+                cursor:pointer;
+            }
+
+            /*=================================================================================*/
+            /*================= This is a class inside it all  container item =================*/
+            /*=================================================================================*/
+            .lineQuizContainer,
+            .liveQuizContainer,
+            .freeQuizContainer,
+            .recentLiveQuizContainer{
+                margin: 0 75px;
+                /* background: red; */
+            }
+
+            /*=================================================================================*/
+            /*========== This is a class which name features inside it all quiz item ==========*/
+            /*=================================================================================*/
+            .features{
+                display:flex;
+                flex-wrap:nowrap;      /* ek hi line */
+                justify-content:space-between;
+
+                overflow:hidden;       /* no scroll */
+
+                background:#ffffff;
+                border-radius:10px;
+                padding:0px 0px;
+                margin: 10px 0;
+                /* margin-bottom:30px; */
+            }
+
+            .feature-card{
+                flex:1;                /*auto adjust width */
+                max-width:180px;
+                height:130px;
+
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+
+                cursor:pointer;
+                border-right:1px solid #e5e7eb;
+            }
+
+            .feature-card:last-child{
+                border-right:none;
+            }
+
+            .feature-card span{
+                margin-top:12px;
+                font-weight:600;
+                font-size:14px;
+                color:#1f2937;
+            }
+
+            /*=================================================================================*/
+            /*= This is a class which name recentLiveQuizContainer inside it recet quiz item  =*/
+            /*=================================================================================*/
+
+            /*=================================================================================*/
+            /*================ class liveQuizContainer inside it live quiz item ===============*/
+            /*=================================================================================*/
+
+            /*=================================================================================*/
+            /*================= class freeQuizContainer inside it quiz item ===================*/
+            /*=================================================================================*/
+            /* ================= FREE QUIZ CONTAINER ================= */
+.freeQuizContainer{
+    /* max-width:200px; */
+    /* margin:30px auto; */
+    /* padding:15px; */
+    background:#0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+    border-radius:12px;
+    box-shadow:0 6px 18px rgba(0,0,0,.4);
+    text-align:center;
+}
+
+/* ================= HEADING ================= */
+.freeQuizContainer h2{
+    font-size:22px;
+    margin-bottom:15px;
+    color:#e5e7eb;
+}
+
+/* ================= QUIZ CARD ================= */
+.freeQuiz{
+    width: 15%;
+    background:#020617;
+    border-radius:10px;
+    /* padding:15px; */
+    /* display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    transition:.3s; */
+}
+
+.freeQuiz:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,.5);
+}
+
+/* ================= IMAGE ================= */
+.freeQuiz img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:6px;
+}
+
+/* ================= BUTTON ================= */
+.freeQuiz button{
+    padding:8px 22px;
+    border:none;
+    border-radius:20px;
+    background:#2563eb;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.freeQuiz button:hover{
+    background:#1d4ed8;
+    transform:scale(1.05);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media(max-width:480px){
+    .freeQuizContainer{
+        margin:20px 10px;
+    }
+}
+
+
+            /*=================================================================================*/
+            /*= This is a class which name recentLiveQuizContainer inside it recet quiz item  =*/
+            /*=================================================================================*/
+
+            /*=================================================================================*/
+            /*===================== Class info inside it about quiz onwer =====================*/
+            /*=================================================================================*/
+            .info{
+                background:#020617;
+                color:#e5e7eb;
+                padding:40px 20px 20px;
+            }
+
+            /* Grid Layout */
+            .info{
+                display:grid;
+                grid-template-columns:repeat(5, 1fr);
+                gap:30px;
+            }
+
+            /* Footer sections */
+            .partOfFooter h3{
+                font-size:18px;
+                margin-bottom:12px;
+                color:#38bdf8;
+            }
+
+            .partOfFooter p{
+                font-size:14px;
+                line-height:1.6;
+                color:#cbd5f5;
+            }
+
+            .partOfFooter a{
+                display:block;
+                text-decoration:none;
+                color:#cbd5f5;
+                font-size:14px;
+                margin-bottom:6px;
+                transition:0.3s;
+            }
+
+            .partOfFooter a:hover{
+                color:#38bdf8;
+                padding-left:4px;
+            }
+
+            /* Footer bottom */
+            .footer-bottom{
+                grid-column:1 / -1;
+                text-align:center;
+                margin-top:20px;
+                padding-top:15px;
+                border-top:1px solid #1e293b;
+                font-size:14px;
+                color:#94a3b8;
+            }
+
+            .freeQuizList{
+    display:flex;
+    gap:20px;
+    width:100%;
+    justify-content:center;
+}
+
+        </style> -->
+    </head>
+    <body>
+
+        <!--================================================-->
+        <!--===== Start header and search box from here ====-->
+        <!--================================================-->
+        <div class="header">
+            <input type="text" id="input" placeholder="Search">
+            <button>Get Pass</button>
+        </div>
+
+        <!--================================================-->
+        <!--=========== Start All Quiz from here ===========-->
+        <!--================================================-->
+        <div class="lineQuizContainer">
+            <div class="features">
+                <div class="feature-card">🎥<span>Live Classes</span></div>
+                <div class="feature-card">📝<span>Live Tests & Quizzes</span></div>
+                <div class="feature-card">🆓<span>Free Quizzes</span></div>
+                <div class="feature-card">📄<span>Previous Year Papers</span></div>
+                <div class="feature-card">🧪<span>Practice</span></div>
+                <div class="feature-card">📚<span>GK & CA</span></div>
+            </div>
+        </div>
+
+        <!--================================================-->
+        <!--======= Start recent live Quiz from here =======-->
+        <!--================================================-->
+        <!-- <div class="recentLiveQuizContainer">
+            <h2>Your Recent Test Series</h2>
+            <div class="recentQuiz"></div>
+        </div> -->
+
+        <!--================================================-->
+        <!--=========== Start Live Quiz from here ==========-->
+        <!--================================================-->
+        <div class="liveQuizContainer">
+            <h2>Live Test & Quiz</h2>
+            <div class="liveQuizes" id="liveQuizes"></div>
+        </div>
+
+        <!--================================================-->
+        <!--============= Start Quiz from here =============-->
+        <!--================================================-->
+        <div class="freeQuizContainer">
+            <!-- <h2>Quiz BSEB</h2> -->
+            <div class="freeQuizList" id="freeQuiz"></div>
+        </div>
+
+        <div class="freeQuizContainer">
+            <!-- <h2>Quiz SSC</h2> -->
+            <div class="freeQuizList" id="freeQuizes"></div>
+        </div>
+
+        <div class="freeQuizContainer">
+            <h2>Quiz Programming</h2>
+            <div class="freeQuizList" id="freeQuizProgramming"></div>
+        </div>
+
+
+        <!--================================================-->
+        <!--======== Start Footer details from here ========-->
+        <!--================================================-->
+        <div class="info" id="info1">
+            <div class="partOfFooter">
+                <h3>About Us</h3>
+                <p>
+                    We provide high-quality tutorials, quizzes, and study materials
+                    for students of all classes.
+                </p>
+            </div>
+
+            <div class="partOfFooter">
+                <h3>Important Links</h3>
+                <a href="#">Home</a>
+                <a href="#">Tutorials</a>
+                <a href="#">Quiz</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Refund Policy</a>
+            </div>
+
+            <div class="partOfFooter">
+                <h3>Courses</h3>
+                <a href="#">Class 9</a>
+                <a href="#">Class 10</a>
+                <a href="#">Class 11</a>
+                <a href="#">Class 12</a>
+                <a href="#">Competitive Exams</a>
+            </div>
+
+            <div class="partOfFooter">
+                <h3>Connect With Us</h3>
+                <a href="#">Instagram</a>
+                <a href="#">WhatsApp</a>
+                <a href="#">Telegram</a>
+                <a href="#">YouTube</a>
+            </div>
+
+            <div class="partOfFooter">
+                <h3>Contact</h3>
+                <p>Email: guddukumarbihar2003@gmail.com</p>
+                <p>WhatsApp: +91 7763015380</p>
+                <p>Bihar, India</p>
+            </div>
+
+            <div class="footer-bottom">
+                © 2025 YourSiteName. All Rights Reserved.
+            </div>
+        </div>
+
+        <!--================================================-->
+        <!--========== Start JavaScript from here ==========-->
+        <!--================================================-->
+        <script src="homePage.js"></script>
+        <!-- <script src="liveQuiz.js"></script> -->
+
+    </body>
+</html>
